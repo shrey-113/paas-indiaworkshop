@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - CocoBot Technologies</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>CocoBot Technologies</h1>
+                <p class="tagline">Let the drone climb for you.</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h2>Contact Us</h2>
+        </div>
+    </section>
+
+    <section class="contact-content">
+        <div class="container">
+            <div class="contact-info">
+                <h3>Get in Touch</h3>
+                <p>Interested in learning more about CocoBot? Fill out the form below or reach out to us directly.</p>
+                
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <h4>Email</h4>
+                        <p>info@cocobot-tech.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <h4>Phone</h4>
+                        <p>+91 98765 43210</p>
+                    </div>
+                    <div class="contact-item">
+                        <h4>Address</h4>
+                        <p>123 AgriTech Park, Bangalore, India</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h3>Send us a Message</h3>
+                <form id="contactForm" action="/api/contact" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="inquiry">Inquiry Type</label>
+                        <select id="inquiry" name="inquiry">
+                            <option value="sales">Sales Inquiry</option>
+                            <option value="demo">Request a Demo</option>
+                            <option value="support">Technical Support</option>
+                            <option value="partnership">Partnership Opportunity</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 CocoBot Technologies. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
