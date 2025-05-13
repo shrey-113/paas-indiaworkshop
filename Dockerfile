@@ -16,7 +16,7 @@ COPY server/ ./
 COPY frontend/ ./public/
 
 # Expose port for the application
-EXPOSE 3000
+EXPOSE 8080
 
 # Start the application
 CMD ["node", "server.js"]

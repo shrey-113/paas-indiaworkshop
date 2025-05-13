@@ -5,8 +5,9 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #f5f5f5;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   z-index: 9999;
@@ -20,63 +21,124 @@
 
 .drone {
   position: relative;
-  width: 120px;
-  height: 40px;
+  width: 150px;
+  height: 60px;
   transform-style: preserve-3d;
   animation: hover 2s infinite ease-in-out;
 }
 
 .drone-body {
   position: absolute;
-  width: 80px;
-  height: 30px;
-  background-color: #2196F3;
-  border-radius: 15px;
+  width: 100px;
+  height: 40px;
+  background: linear-gradient(145deg, #2196F3, #1e88e5);
+  border-radius: 20px;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 25px rgba(33, 150, 243, 0.3);
+  z-index: 2;
+}
+
+.drone-body::before {
+  content: '';
+  position: absolute;
+  width: 60%;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  top: 7px;
+  left: 20%;
+}
+
+.drone-body::after {
+  content: '';
+  position: absolute;
+  width: 20%;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  bottom: 7px;
+  left: 40%;
 }
 
 .propeller {
   position: absolute;
-  width: 30px;
-  height: 5px;
-  background-color: #757575;
-  border-radius: 3px;
+  width: 40px;
+  height: 8px;
+  background-color: #546e7a;
+  border-radius: 4px;
   top: 50%;
   transform-origin: center;
-  animation: spin 0.5s infinite linear;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.propeller::before, .propeller::after {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 8px;
+  background-color: #546e7a;
+  border-radius: 4px;
+  top: 0;
+  left: 0;
+  transform-origin: center;
+}
+
+.propeller::before {
+  transform: rotate(60deg);
+}
+
+.propeller::after {
+  transform: rotate(-60deg);
 }
 
 .propeller-1 {
-  left: 0;
+  left: -10px;
+  animation: spin 0.3s infinite linear;
 }
 
 .propeller-2 {
-  right: 0;
+  right: -10px;
+  animation: spin 0.3s infinite linear reverse;
 }
 
 .shadow {
   position: absolute;
-  width: 80px;
-  height: 10px;
-  background-color: rgba(0,0,0,0.1);
+  width: 100px;
+  height: 20px;
+  background-color: rgba(0, 0, 0, 0.1);
   border-radius: 50%;
-  bottom: -40px;
+  bottom: -50px;
   left: 50%;
   transform: translateX(-50%);
-  filter: blur(3px);
+  filter: blur(5px);
   animation: shadow 2s infinite ease-in-out;
 }
 
 .company-name {
-  margin-top: 130px;
-  font-size: 24px;
+  margin-top: 120px;
+  font-size: 28px;
   font-weight: bold;
   color: #2196F3;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   text-align: center;
+  text-transform: uppercase;
+  animation: pulse 2s infinite ease-in-out;
+  position: relative;
+}
+
+.company-name::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: #2196F3;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: expand 2s infinite ease-in-out;
 }
 
 @keyframes hover {
@@ -84,7 +146,7 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-30px);
+    transform: translateY(-25px);
   }
 }
 
@@ -99,11 +161,180 @@
 
 @keyframes shadow {
   0%, 100% {
-    width: 80px;
+    width: 100px;
+    opacity: 0.8;
+  }
+  50% {
+    width: 60px;
+    opacity: 0.4;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
     opacity: 1;
   }
   50% {
-    width: 40px;
-    opacity: 0.5;
+    opacity: 0.7;
   }
+}
+
+@keyframes expand {
+  0%, 100% {
+    width: 0;
+  }
+  50% {
+    width: 80%;
+  }
+}
+
+/* Page Transitions & Effects */
+.page-transition {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.fade-in-bottom {
+  animation: fadeInBottom 0.8s ease-in-out;
+}
+
+.fade-in-left {
+  animation: fadeInLeft 0.8s ease-in-out;
+}
+
+.fade-in-right {
+  animation: fadeInRight 0.8s ease-in-out;
+}
+
+.bounce {
+  animation: bounce 1s ease-in-out;
+}
+
+.shake {
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInBottom {
+  from { 
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from { 
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from { 
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+/* Form Elements Animation */
+.form-success {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #4CAF50;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  border-left: 4px solid #4CAF50;
+  animation: slideInDown 0.5s ease-in-out;
+}
+
+.form-error {
+  background-color: rgba(244, 67, 54, 0.1);
+  color: #F44336;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  border-left: 4px solid #F44336;
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+.error {
+  border-color: #F44336 !important;
+  box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.2) !important;
+}
+
+.error-container label {
+  color: #F44336;
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Hover Animations */
+.hover {
+  animation: hover 0.5s ease-in-out;
 }
