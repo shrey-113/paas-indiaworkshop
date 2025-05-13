@@ -1,6 +1,22 @@
 // Main JavaScript file for CocoBot website
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Handle loading animation
+    const loaderContainer = document.querySelector('.loader-container');
+    
+    if (loaderContainer) {
+        // Hide loader after content loads
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                loaderContainer.classList.add('fade-out');
+                // Remove loader from DOM after animation completes
+                setTimeout(function() {
+                    loaderContainer.style.display = 'none';
+                }, 500);
+            }, 2000); // Show animation for 2 seconds
+        });
+    }
+    
     // Contact form submission
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
