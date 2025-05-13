@@ -13,10 +13,10 @@ RUN npm install
 COPY server/ ./
 
 # Copy frontend files to public directory
-COPY frontend/ ./public/
+COPY frontend/ ../frontend/
 
 # Expose port for the application
-EXPOSE 8080
+EXPOSE 8081
 
 # Start the application
 CMD ["node", "server.js"]

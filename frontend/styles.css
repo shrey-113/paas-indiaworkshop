@@ -1,0 +1,130 @@
+:root {
+  --primary: #2E7D32;
+  --secondary: #81C784;
+  --accent: #DCEDC8;
+  --text: #33691E;
+  --background: #F1F8E9;
+  --white: #FFFFFF;
+  --light-shadow: rgba(46, 125, 50, 0.1);
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+header {
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 1rem 2rem;
+  text-align: center;
+  box-shadow: 0 2px 5px var(--light-shadow);
+}
+
+h1, h2, h3 {
+  color: var(--primary);
+}
+
+header h1 {
+  color: var(--white);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.form-container {
+  background-color: var(--white);
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 10px var(--light-shadow);
+  margin-top: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--secondary);
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: var(--white);
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.2);
+}
+
+button {
+  background-color: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #1B5E20;
+}
+
+.success-message {
+  background-color: var(--accent);
+  border-left: 4px solid var(--primary);
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 4px;
+  display: none;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--primary);
+  color: var(--white);
+  margin-top: 2rem;
+}
+
+/* Agriculture elements */
+.leaf-icon {
+  color: var(--secondary);
+  margin-right: 0.5rem;
+}
+
+.agriculture-banner {
+  background-color: var(--accent);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  text-align: center;
+  border: 1px dashed var(--secondary);
+}
+
+.agriculture-banner h2 {
+  margin-top: 0;
+}
+
+.eco-highlight {
+  color: var(--primary);
+  font-weight: bold;
+}
